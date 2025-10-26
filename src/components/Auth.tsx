@@ -40,17 +40,31 @@ export const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <Card className="w-full max-w-md card-glass">
+    <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-40"
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-person-running-on-a-treadmill-28467-large.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-hero backdrop-blur-sm" />
+      </div>
+
+      <Card className="relative z-10 w-full max-w-md card-glass border-2 backdrop-blur-lg shadow-glow">
         <CardHeader className="text-center space-y-4">
-          <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary to-primary-glow rounded-2xl flex items-center justify-center shadow-glow animate-float">
-            <Utensils className="w-8 h-8 text-primary-foreground" />
+          <div className="mx-auto w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-glow animate-float">
+            <Utensils className="w-10 h-10 text-white" />
           </div>
-          <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <CardTitle className="text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
             CaloriTrack
           </CardTitle>
-          <CardDescription>
-            {isLogin ? "Welcome back! Sign in to continue" : "Create your account to start tracking"}
+          <CardDescription className="text-lg">
+            {isLogin ? "Welcome back! Sign in to continue" : "Start your fitness journey today"}
           </CardDescription>
         </CardHeader>
         <CardContent>

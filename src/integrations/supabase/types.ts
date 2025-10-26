@@ -80,6 +80,78 @@ export type Database = {
         }
         Relationships: []
       }
+      food_database: {
+        Row: {
+          calories: number
+          carbs: number
+          category: string
+          created_at: string | null
+          cuisine: string | null
+          fats: number
+          fiber: number | null
+          id: string
+          is_healthy: boolean | null
+          name: string
+          protein: number
+          serving_size: string | null
+          tags: string[] | null
+        }
+        Insert: {
+          calories: number
+          carbs: number
+          category: string
+          created_at?: string | null
+          cuisine?: string | null
+          fats: number
+          fiber?: number | null
+          id?: string
+          is_healthy?: boolean | null
+          name: string
+          protein: number
+          serving_size?: string | null
+          tags?: string[] | null
+        }
+        Update: {
+          calories?: number
+          carbs?: number
+          category?: string
+          created_at?: string | null
+          cuisine?: string | null
+          fats?: number
+          fiber?: number | null
+          id?: string
+          is_healthy?: boolean | null
+          name?: string
+          protein?: number
+          serving_size?: string | null
+          tags?: string[] | null
+        }
+        Relationships: []
+      }
+      meal_plans: {
+        Row: {
+          created_at: string | null
+          id: string
+          plan_data: Json
+          plan_type: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          plan_data: Json
+          plan_type: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          plan_data?: Json
+          plan_type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       meals: {
         Row: {
           calories: number
@@ -116,6 +188,45 @@ export type Database = {
           protein?: number | null
           updated_at?: string | null
           user_id?: string | null
+        }
+        Relationships: []
+      }
+      user_profiles: {
+        Row: {
+          activity_level: string | null
+          age: number | null
+          created_at: string | null
+          fitness_goal: string | null
+          gender: string | null
+          height_cm: number | null
+          id: string
+          updated_at: string | null
+          user_id: string
+          weight_kg: number | null
+        }
+        Insert: {
+          activity_level?: string | null
+          age?: number | null
+          created_at?: string | null
+          fitness_goal?: string | null
+          gender?: string | null
+          height_cm?: number | null
+          id?: string
+          updated_at?: string | null
+          user_id: string
+          weight_kg?: number | null
+        }
+        Update: {
+          activity_level?: string | null
+          age?: number | null
+          created_at?: string | null
+          fitness_goal?: string | null
+          gender?: string | null
+          height_cm?: number | null
+          id?: string
+          updated_at?: string | null
+          user_id?: string
+          weight_kg?: number | null
         }
         Relationships: []
       }
