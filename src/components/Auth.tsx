@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Utensils } from "lucide-react";
+import fitnessHero from "@/assets/fitness-hero.jpg";
 
 export const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -28,6 +29,9 @@ export const Auth = () => {
         const { error } = await supabase.auth.signUp({
           email,
           password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/`
+          }
         });
         if (error) throw error;
         toast.success("Account created! You can now log in.");
@@ -41,17 +45,15 @@ export const Auth = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
-      {/* Video Background */}
+      {/* Animated Background */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover opacity-40"
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-person-running-on-a-treadmill-28467-large.mp4" type="video/mp4" />
-        </video>
+        <div 
+          className="w-full h-full bg-cover bg-center animate-pulse"
+          style={{ 
+            backgroundImage: `url(${fitnessHero})`,
+            animation: 'pulse 4s ease-in-out infinite'
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-hero backdrop-blur-sm" />
       </div>
 
