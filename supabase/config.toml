@@ -1,7 +1,7 @@
 project_id = "ixfltxhsyyczkgmkvxsw"
 
 [functions.parse-meal]
-verify_jwt = false
+verify_jwt = true
 
 [functions.suggest-meal-plan]
 verify_jwt = true
